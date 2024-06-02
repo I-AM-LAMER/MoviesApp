@@ -3,8 +3,10 @@ services:
   postgres:
     image: 'postgres:15.5'
     env_file: .env
+    environment:
+      - PGDATA=/var/lib/postgresql/data
     ports:
-      - ${POSTGRES_PORT}:5432
+      - 9000:5432
     healthcheck:
       test: [ "CMD", "pg_isready", "-U", "${POSTGRES_USER}", "-d", "${POSTGRES_DB}" ]
       interval: 10s
@@ -13,25 +15,24 @@ services:
     restart: always
     networks:
       - main_network
+    volumes:
+      - db_data:/var/lib/postgresql/data
     extra_hosts:
       - "host.docker.internal:host-gateway"
-  migrations:
-    build: 
-      context: ./app/db
-      dockerfile: Dockerfile
+  app:
+    build: ./app
+    env_file: .env
+    ports:
+      - ${FLASK_PORT}:${FLASK_PORT}
+    stop_signal: SIGINT
     depends_on:
       postgres:
         condition: service_healthy
-    networks:
-      - main_network
-  app:
-    build:
-      context: ./app
-      dockerfile: Dockerfile
-    depends_on:
-      migrations:
-        condition: service_completed_successfully
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     networks:
       - main_network
 networks:
   main_network:
+volumes:
+  db_data:
