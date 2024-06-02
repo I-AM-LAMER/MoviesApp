@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Actor Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='actor.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="film-details">
+            <h1>{{ actor.actor_name }}</h1>
+            <img src="{{ actor.image }}" width="700" 
+            height="700" alt="{{ actor.actor_name }}" class="poster">
+            <p><strong>About:</strong> {{ actor.description }}</p>
+            <a href="{{ actor.url }}">link to imdb</a>
+        </div>
+    </div>
+</body>
+</html>

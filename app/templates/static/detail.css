@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+
+.film-details {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.film-details h1 {
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center; /* Центрирование заголовка */
+}
+
+.film-details h2,.film-details h3 {
+    color: #333;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+.film-details img {
+    padding: 20px;
+    display: block; /* Убедиться, что изображение блокирующего типа */
+    max-width: 100%; /* Предел максимальной ширины для избежания переполнения */
+}
+
+.film-details p,.film-details ul {
+    text-align: left; /* Выравнивание текста по левому краю */
+    width: 80%; /* Ширина текстового блока */
+    margin: 0 auto; /* Центрирование текстового блока */
+}
+
+.film-details ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+.film-details ul li {
+    margin-bottom: 10px;
+}

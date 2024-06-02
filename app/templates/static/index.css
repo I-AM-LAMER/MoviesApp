@@ -1,0 +1,82 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e9ebee; /* Измененный фон */
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.film-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.film-list li {
+    border: 1px solid #ccc; /* Измененный цвет границы */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.film-list li:hover {
+    transform: scale(1.05);
+}
+
+.film-list img {
+    width: 100%; /* Постер меньше */
+    height: auto;
+    object-fit: cover; /* Добавлено для сохранения пропорций */
+}
+
+.film-list h3,.film-details h2,.film-details h3 {
+    color: #333;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+
+.film-list span,.film-details p {
+    color: #666;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+/* Стили для рейтинга */
+.film-list span,.film-details.rating {
+    color: gold; /* Звездочки для рейтинга */
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.film-details.rating:before {
+    content: "\2605"; /* Иконка звезды */
+    color: gold;
+    margin-right: 5px;
+}
+
+.film-details {
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.film-details ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+.film-details p {
+    font-size: 16px; /* Описание больше */
+    line-height: 1.6; /* Улучшенное расстояние между строками */
+    color: #424242; /* Темнее для контраста */
+}

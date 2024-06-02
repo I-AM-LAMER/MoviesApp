@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>REST for movies</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='detail.css') }}">
+</head>
+<body>
+    <h1>IMDB ID</h1>
+    <form action="/{{ link }}" method="{{ method }}">
+        <!-- Поле ввода для ID фильма -->
+        <input type="text" name="movie_id" required>
+        <button type="submit">Enter</button>
+    </form>
+    <a href="{{ url_for('index') }}" class="button-style">Home Page</a>
+    <h2>{{ message }}</h2>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Film Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='detail.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="film-details">
+            <h1>{{ movie.movie_name }}</h1>
+            <img src="{{ movie.poster }}" width="700" 
+            height="700" alt="{{ movie.movie_name }}" class="poster">
+            <p><strong>Description:</strong> {{ movie.description }}</p>
+            <p><strong>Rating:</strong> {{ movie.rating }}</p>
+            <!-- Дополнительные поля -->
+            <h2>Actors</h2>
+            <ul>
+                {% for actor in movie.actors %}
+                    <a href="{{ url_for('actor', actor_id=actor.id) }}">
+                        <li>{{ actor.actor_name }}</li>
+                    </a>
+                {% endfor %}
+            </ul>
+            <h2>Genres</h2>
+            <ul>
+                {% for genre in movie.genres %}
+                    <li>{{ genre.genre_name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
