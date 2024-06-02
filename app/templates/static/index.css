@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e9ebee; /* Измененный фон */
+    background-color: rgb(60, 60, 60); /* Измененный фон */
 }
 
 .container {
@@ -25,6 +25,7 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     transition: transform 0.3s ease-in-out;
     text-decoration: none;
+    background-color: white;
 }
 
 .film-list li:hover {
@@ -57,16 +58,38 @@ body {
     margin-top: 10px;
 }
 
-.film-details.rating:before {
-    content: "\2605"; /* Иконка звезды */
-    color: gold;
-    margin-right: 5px;
-}
 
 .film-details {
-    padding: 20px;
     background-color: white;
+    padding: 20px;
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.film-details h1 {
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center; /* Центрирование заголовка */
+}
+
+.film-details h2,.film-details h3 {
+    color: #333;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+.film-details img {
+    padding: 20px;
+    display: block; /* Убедиться, что изображение блокирующего типа */
+    max-width: 100%; /* Предел максимальной ширины для избежания переполнения */
+}
+
+.film-details p,.film-details ul {
+    text-align: left; /* Выравнивание текста по левому краю */
+    width: 80%; /* Ширина текстового блока */
+    margin: 0 auto; /* Центрирование текстового блока */
 }
 
 .film-details ul {
@@ -75,8 +98,66 @@ body {
     margin-top: 20px;
 }
 
-.film-details p {
-    font-size: 16px; /* Описание больше */
-    line-height: 1.6; /* Улучшенное расстояние между строками */
-    color: #424242; /* Темнее для контраста */
+.film-details ul li {
+    margin-bottom: 10px;
+}
+
+.submit_form form {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.submit_form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+.submit_form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit_form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.submit_form h1,.submit_form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ccc;
+    font-weight: bold;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030; /* Значение z-index для Bootstrap Navbar */
+}
+
+.navbar-brand,
+.nav-link {
+    color: #333; /* Цвет текста */
+}
+
+.navbar-brand:hover,
+.nav-link:hover {
+    color: #007bff; /* Цвет при наведении */
+}
+
+.navbar-nav {
+    margin-left: auto; /* Выравнивание элементов по правому краю */
 }

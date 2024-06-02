@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends "index.html" %}
+{% block head %}
     <meta charset="UTF-8">
     <title>Actor Details</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='actor.css') }}">
-</head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+{% endblock %}
 <body>
+    {% block content %}
     <div class="container">
         <div class="film-details">
             <h1>{{ actor.actor_name }}</h1>
@@ -15,5 +16,6 @@
             <a href="{{ actor.url }}">link to imdb</a>
         </div>
     </div>
+    {% endblock %}
 </body>
 </html>
