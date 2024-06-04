@@ -10,8 +10,9 @@
     <div class="submit_form">
         <h1>REST API</h1>
         <form action="/{{ link }}" method="{{ method }}">
-            <!-- Поле ввода для ID фильма -->
-            <input type="text" name="id" placeholder="imdb id" required >
+            {% for attr in attrs %}
+                <input type="text" name="{{ attr }}" placeholder="{{ attr }}">
+            {% endfor %}
             <button type="submit">Enter</button>
         </form>
         <h2>{{ message }}</h2>

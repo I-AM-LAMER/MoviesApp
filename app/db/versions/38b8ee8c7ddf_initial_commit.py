@@ -9,6 +9,7 @@ from typing import Sequence, Union
 
 from alembic import op
 import sqlalchemy as sa
+import uuid
 
 
 # revision identifiers, used by Alembic.
@@ -32,7 +33,7 @@ def upgrade() -> None:
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('genre',
-    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('id', sa.UUID(), nullable=False, default=uuid.uuid4),
     sa.Column('genre_name', sa.String(), nullable=False),
     sa.CheckConstraint('length(genre_name) < 60', name='genre_valid_length'),
     sa.PrimaryKeyConstraint('id'),
@@ -58,7 +59,7 @@ def upgrade() -> None:
     )
     op.create_table('movie_genre',
     sa.Column('movie_id', sa.String(), nullable=False),
-    sa.Column('genre_id', sa.Integer(), nullable=False),
+    sa.Column('genre_id', sa.UUID(), nullable=False),
     sa.ForeignKeyConstraint(['genre_id'], ['genre.id'], ),
     sa.ForeignKeyConstraint(['movie_id'], ['movie.id'], ),
     sa.PrimaryKeyConstraint('movie_id', 'genre_id')

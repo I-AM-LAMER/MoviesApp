@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+{% block head %}
+    <meta charset="UTF-8">
+    <title>Actors List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+{% endblock %}
+<body>
+    {% block content %}
+    <div class="container">
+        <ul class="film-list">
+            {% for actor in actors %}
+                <li>
+                    <a href="{{ url_for('actor', actor_id=actor.id) }}">
+                        <img src="{{ actor.image }}" alt="{{ actor.actor_name }}">
+                        <h3>{{ actor.actor_name }}</h3>
+                        <h4><strong>Birth date: </strong>{{ actor.birth_date }}</h4>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endblock %}
+</body>

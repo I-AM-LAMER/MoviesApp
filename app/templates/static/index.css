@@ -38,7 +38,7 @@ body {
     object-fit: cover; /* Добавлено для сохранения пропорций */
 }
 
-.film-list h3,.film-details h2,.film-details h3 {
+.film-list h3,.film-list h4,.film-details h2,.film-details h3 {
     color: #333;
     margin-bottom: 10px;
     text-decoration: none;

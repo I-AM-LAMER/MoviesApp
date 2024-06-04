@@ -17,14 +17,23 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('index') }}">Films</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('add_movie') }}">Add Movie</a>
+                    <a class="nav-link" href="{{ url_for('actors') }}">Actors</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('delete_movie') }}">Delete Movie</a>
+                    <a class="nav-link" href="{{ url_for('add_movie_actor') }}">Add Movie/Actor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('delete_movie_actor') }}">Delete Movie/Actor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('update_movie') }}">Update Movie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('update_actor') }}">Update Actor</a>
                 </li>
             </ul>
         </div>
