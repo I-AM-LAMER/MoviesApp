@@ -1,7 +1,7 @@
 # Launch Instructions:
 
 ### 1. Clone a project.
-`git clone https://github.com/ilya-danilov/films-and-actors-hw`
+`git clone https://github.com/I-AM-LAMER/MoviesApp`
 
 ### 2. Create an .env file.
 
@@ -24,4 +24,4 @@ Stop the work: `docker compose stop`
 Reset all project settings: `docker compose down`
 
 ### 6. Go to the website.
-http://0.0.0.0:${FLASK_PORT}
+http://0.0.0.0:FLASK_PORT
