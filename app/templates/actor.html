@@ -22,6 +22,41 @@
                 {% endfor %}
             </ul>
             <a href="{{ actor.url }}">link to imdb</a>
+            <button id="delete_btn" class="delete-button">Delete</button>
+            <script>
+                function showMessageAndRedirect() {
+                    // Показываем сообщение об успехе и анимацию
+                    document.getElementById('successMessage').style.display = 'block';
+
+                    setTimeout(() => {
+                        // Скрываем сообщение и анимацию через заданный интервал времени
+                        document.getElementById('successMessage').style.display = 'none';
+
+                        // Выполняем редирект на главную страницу
+                        window.location.href = 'http://0.0.0.0:9090/actors';
+                    }, 3000); // Задержка в 3 секунды перед редиректом
+                }
+                document.getElementById('delete_btn').addEventListener('click', function() {
+                // Create a FormData instance
+                    var formData = new FormData();
+
+                    // Append form inputs to the FormData instance
+                    formData.append('id', '{{ actor.id }}');
+
+                    // Prepare to send the FormData object via AJAX
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', '/delete_movie_actor'); // Replace '/your-endpoint' with your actual endpoint
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            console.log(xhr.responseText); // Handle the response from the server
+                        }
+                    };
+
+                    // Send the FormData object
+                    xhr.send(formData);
+                    showMessageAndRedirect();
+                });
+            </script>
         </div>
     </div>
     {% endblock %}

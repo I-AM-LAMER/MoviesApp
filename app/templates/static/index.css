@@ -161,3 +161,34 @@ body {
 .navbar-nav {
     margin-left: auto; /* Выравнивание элементов по правому краю */
 }
+
+/* Base styles for the Delete button */
+.delete-button {
+    background-color: #dc3545; /* Red for caution */
+    color: white; /* White text for contrast */
+    border: none; /* No border */
+    padding: 10px 20px; /* Some padding */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* No underline */
+    display: inline-block; /* Treat as an inline-block element */
+    font-size: 16px; /* Standard font size */
+    margin: 4px 2px; /* Small margin */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Hover state - darken the button slightly */
+.delete-button:hover {
+    background-color: #c82333; /* Slightly darker red */
+}
+
+/* Focus state - add a subtle glow */
+.delete-button:focus {
+    outline: none; /* Remove the default outline */
+    box-shadow: 0 0 5px rgba(216, 27, 30, 0.5); /* Subtle glow effect */
+}
+
+/* Active state - simulate pressing the button */
+.delete-button:active {
+    background-color: #a92828; /* Even darker shade when pressed */
+}
