@@ -39,6 +39,8 @@ jobs:
         envkey_FLASK_PORT: ${{ secrets.FLASK_PORT}}
     - name: Start docker container
       run: docker compose up -d --build
+    - name: Start pytest
+      run: docker exec app pytest
     - name: Sleep
       run: sleep 5
     - name: Stop docker container
