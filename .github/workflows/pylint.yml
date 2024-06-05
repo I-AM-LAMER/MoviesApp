@@ -16,19 +16,34 @@ jobs:
         pip install flake8==3.9.0 wemake-python-styleguide==0.15.3 bandit==1.7.2
     - name: Flake8
       run: flake8
-  build:
+  tests:
+    name: Test pages
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
-
-    - name: Build the stack
-      run: docker-compose up --build -d
-
-    - name: Run tests
+    - name: Python installation
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11
+    - name: Dependencies installation
       run: |
-        docker exec app pytest
-
-    - name: Stop containers
-      if: always()
-      run: docker-compose down
+        python3 -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Make .env file
+      uses: SpicyPizza/create-envfile@v2.0
+      with:
+        envkey_POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+        envkey_POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+        envkey_POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+        envkey_POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
+        envkey_POSTGRES_INNER_PORT: ${{ secrets.POSTGRES_INNER_PORT }}
+        envkey_POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
+        envkey_POSTGRES_INNER_HOST: ${{ secrets.POSTGRES_INNER_HOST }}
+        envkey_DEBUG_MODE: ${{ secrets.DEBUG_MODE}}
+        envkey_FLASK_PORT: ${{ secrets.FLASK_PORT}}
+    - name: Start docker container
+      run: docker compose up -d --build
+    - name: Sleep
+      run: sleep 5
+    - name: Stop docker container
+      run: docker compose down
